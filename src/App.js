@@ -36,8 +36,7 @@ class App extends React.Component {
           completed: false
         }
       ],
-      inputText: "",
-      newTask: ""
+      todo: ""
     };
   }
   changeHandler = event => {
@@ -46,20 +45,26 @@ class App extends React.Component {
 
   addToDoHandler = event => {
     event.preventDefault();
+    const newTodo = {
+      task: this.state.todo,
+      completed: false,
+      id: Date.now()
+    };
     this.setState({
-      toDoData: [...this.state.toDoData, { task: this.state.newTask }],
-      newTask: ""
+      toDoData: [...this.state.toDoData, newTodo],
+      todo: ""
     });
   };
 
   render() {
     return (
       <div>
-        <TodoList newTask={this.state.newTask} toDoData={this.state.toDoData} />
+        <h1>My First React To-do List!</h1>
+        <TodoList toDoData={this.state.toDoData} />
         <TodoForm
-          addToDoHandler={this.addToDoHandler}
-          inputText={this.state.inputText}
+          value={this.state.todo}
           changeHandler={this.changeHandler}
+          addToDoHandler={this.addToDoHandler}
         />
       </div>
     );
