@@ -12,27 +12,27 @@ class App extends React.Component {
       toDoData: [
         {
           task: "Clean Room",
-          id: Date.now(),
+          id: Date.now().toString(),
           completed: false
         },
         {
           task: "Practice JavaScript",
-          id: Date.now(),
+          id: Date.now().toString() + 1,
           completed: false
         },
         {
           task: "Practice React",
-          id: Date.now(),
+          id: Date.now().toString() + 2,
           completed: false
         },
         {
           task: "Find The Meaning of Life",
-          id: Date.now(),
+          id: Date.now().toString() + 3,
           completed: false
         },
         {
           task: "Graduate Lambda School",
-          id: Date.now(),
+          id: Date.now().toString() + 4,
           completed: false
         }
       ],
@@ -42,6 +42,10 @@ class App extends React.Component {
   changeHandler = event => {
     this.setState({ [event.target.name]: event.target.value });
   };
+
+  // onClick = () => {
+  //   this.setState({ clicked: !this.state.clicked });
+  // };
 
   toggleTodoDone = id => {
     let toDoData = this.state.toDoData.slice();
@@ -74,6 +78,15 @@ class App extends React.Component {
     let toDoData = this.state.toDoData.filter(todo => !todo.completed);
     this.setState({ toDoData });
   };
+  // clearCompleted = () => {
+  //   this.setState(prevState => {
+  //     return {
+  //       toDoData: prevState.toDoData.filter(todo => {
+  //         return !todo.completed;
+  //       })
+  //     };
+  //   });
+  // };
 
   render() {
     return (

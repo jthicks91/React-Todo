@@ -7,7 +7,7 @@ const TodoForm = props => {
         <input
           type="text"
           name="todo"
-          value={props.todo}
+          value={props.value}
           onChange={props.changeHandler}
           placeholder="...To do"
         />
